@@ -89,6 +89,7 @@ class App extends Component {
 							</button>
 						</section>
 
+						{/* render beer data based on list toggled */}
 						{this.beerDataToRender()}
 					</div>
 				</main>
