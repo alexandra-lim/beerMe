@@ -1,0 +1,78 @@
+ul {
+	// @include mediaQ(aboveTabletLandscape) {
+    //     @include flexbox;
+    //     justify-content: space-between;
+	// }
+}
+
+.beerInfo {
+	border: 5px solid $baseColor;
+	border-radius: 1rem;
+	margin: 2rem 0;
+    background: $backgroundColor;
+    
+    @include mediaQ(aboveLandscapePhone) {
+        @include flexbox;
+    }
+
+	figure {
+        padding: 1rem 0;
+        
+        @include mediaQ(aboveLandscapePhone) {
+            width: 50%;
+            align-self: center;
+            padding: 3rem 0;
+        }
+	}
+}
+
+.content {
+	background: $baseColor;
+	color: $backgroundColor;
+    padding: 2rem;
+    
+    @include mediaQ(aboveLandscapePhone) {
+        width: 50%;
+        padding: 3rem 4rem;
+    }
+}
+
+.content {
+	h3 {
+		font-size: calc(2rem + (36 - 20) * ((100vw - 320px) / (1600 - 320)));
+		font-family: $headingFont;
+		margin: 0;
+	}
+
+	p {
+		font-size: calc(1.6rem + (20 - 16) * ((100vw - 320px) / (1600 - 320)));
+    }
+    
+    .tagline {
+		margin-top: 0;
+    }
+}
+
+.content {
+	.abv {
+		margin-bottom: 0;
+	}
+
+	.ibu {
+		margin-top: 0;
+	}
+}
+
+.content {
+	.description, .foodPairing {
+        text-align: justify;
+        
+        @include mediaQ(aboveLandscapePhone) {
+            text-align: left;
+        }
+	}
+
+	.bold {
+		font-weight: 700;
+	}
+}

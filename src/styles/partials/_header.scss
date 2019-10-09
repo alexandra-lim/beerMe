@@ -1,0 +1,12 @@
+header {
+    background: $accentColor;
+    text-align: center;
+    h1 {
+        font-family: $headingFont;
+        font-size: calc(4rem + (72 - 40) * ((100vw - 320px) / (1600 - 320)));
+        color: $backgroundColor;
+        margin-top: 0;
+        padding: 4rem 0;
+        letter-spacing: 0.12rem;
+    }
+}

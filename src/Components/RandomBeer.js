@@ -1,9 +1,10 @@
-import React from "react";
+import React from "../../node_modules/react";
 import BeerDesc from "./BeerDesc";
 
 const RandomBeer = (props) => {
 	return (
 		<section className='randomBeerInfo'>
+
 			{props.randomBeer.map(randomBeer => {
 				return (
 					<BeerDesc

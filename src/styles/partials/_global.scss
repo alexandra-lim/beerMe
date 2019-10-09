@@ -1,0 +1,26 @@
+html {
+    font-size: 62.5%;
+    font-family: $baseFont;
+    color: $baseColor;
+}
+
+body {
+    background: $backgroundColor;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+
+    @include mediaQ(aboveTabletLandscape) {
+        width: 70%;
+    }
+}
+
+img {
+    width: 40%;
+
+    @include mediaQ(aboveTabletLandscape) {
+        width: 22%;
+    }
+}

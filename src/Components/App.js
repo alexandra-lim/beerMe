@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import Axios from "axios";
+import React, { Component } from "../../node_modules/react";
+import Axios from "../../node_modules/axios";
 import Header from "./Header";
 import BeerList from "./BeerList";
 import RandomBeer from "./RandomBeer";
 import Footer from "./Footer";
-import "../App.css";
+import "../styles/App.scss";
 
 class App extends Component {
 	constructor() {
@@ -24,45 +24,48 @@ class App extends Component {
 		Promise.all([beers, randomBeer])
 			.then(res => {
 				this.setState({
-          beerList: res[0].data,
-          randomBeer: res[1].data
+					beerList: res[0].data,
+					randomBeer: res[1].data
 				});
 			})
 			.catch(error => {
 				console.log(error);
 				alert("Try again later!");
 			});
-  }
-  
-  // to generate random beer by calling random api when user clicks on randomize. randomized loop when called in beerDataToRender();
-  // randomize = () => {
-  //   Axios.get("https://api.punkapi.com/v2/beers/random")
-  //   .then(res => {
-  //     this.setState({
-  //       randomBeer: res.data,
-  //     })
-  //   });
-  // }
+	}
 
+	// to generate random beer by calling random api when user clicks on randomize. randomized loop when called in beerDataToRender();
+	// randomize = () => {
+	//   Axios.get("https://api.punkapi.com/v2/beers/random")
+	//   .then(res => {
+	//     this.setState({
+	//       randomBeer: res.data,
+	//     })
+	//   });
+	// }
 
-  // to show the right content based on button clicked
+	// to show the right content based on button clicked
 	beerDataToRender = () => {
 		const { beerList, randomBeer, listToShow } = this.state;
 		if (listToShow === "beerList") {
 			return <BeerList beerList={beerList} />;
 		} else if (listToShow === "randomBeer") {
-      // this.randomize();
-			return <RandomBeer randomBeer={randomBeer} />;
+			// this.randomize();
+			return (
+				<RandomBeer
+					randomBeer={randomBeer}
+					toggleList={this.toggleList}
+				/>
+			);
 		}
 	};
 
-
-  // to change the state of listToShow
+	// to change the state of listToShow
 	toggleList = listType => {
 		this.setState({
 			listToShow: listType
 		});
-  };
+	};
 
 	render() {
 		return (
@@ -70,12 +73,24 @@ class App extends Component {
 				<Header />
 
 				<main>
-					{/* on click will toggle list to determine which beer data to show */}
-					<button onClick={() => this.toggleList("randomBeer")}>Randomize!</button>
-					<button onClick={() => this.toggleList("beerList")}>Beer List</button>
+					<div className='wrapper'>
+						<h2>
+							A selection of BrewDog's DIY homebrew recipes. Click
+							"Randomize!" for a random recipe!
+						</h2>
 
-					{this.beerDataToRender()}
-					
+						{/* on click will toggle list to determine which beer data to show */}
+						<section className="buttons">
+							<button onClick={() => this.toggleList("randomBeer")}>
+								Randomize!
+							</button>
+							<button onClick={() => this.toggleList("beerList")}>
+								Beer List
+							</button>
+						</section>
+
+						{this.beerDataToRender()}
+					</div>
 				</main>
 
 				<Footer />

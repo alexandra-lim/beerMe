@@ -1,0 +1,36 @@
+// fonts 
+
+$headingFont: 'Rammetto One', cursive;
+$baseFont: 'Roboto', sans-serif;
+
+
+// colors
+
+$backgroundColor: #f2f1d3;
+$accentColor: #de5d00;
+$baseColor: #293859;
+
+
+// media queries
+
+@mixin mediaQ($size) {
+	@if $size == abovePortraitPhone {
+		@media (min-width: 510px) {
+			@content;
+		}
+	} @else if $size == aboveLandscapePhone {
+		@media (min-width: 750px) {
+			@content;
+		}
+	} @else if $size == aboveTabletLandscape {
+		@media (min-width: 1000px) {
+			@content;
+		}
+	}
+}
+
+// flexbox
+@mixin flexbox {
+	display: flex;
+	flex-wrap: wrap;
+}

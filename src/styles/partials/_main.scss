@@ -1,0 +1,48 @@
+main {
+	text-align: center;
+}
+
+h2 {
+	font-size: calc(2.2rem + (42 - 22) * ((100vw - 320px) / (1600 - 320)));
+}
+
+.buttons {
+	margin-bottom: 5rem;
+}
+
+button {
+	border: none;
+	background-color: $accentColor;
+	color: $backgroundColor;
+	font-family: $headingFont;
+	font-size: 2.2rem;
+	padding: 2rem 3rem;
+	border-radius: 1rem;
+	margin: 1rem 0;
+	transition: 0.3s all linear;
+    
+    @include mediaQ(abovePortraitPhone) {
+        margin: 1rem 0.5rem;
+	}
+
+	&:hover, &:focus {
+		background-color: $baseColor;
+	}
+
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+a {
+	text-decoration: none;
+	font-weight: 700;
+	color: $backgroundColor;
+	transition: 0.3s all linear;
+	&:hover,
+	&:focus {
+		font-style: italic;
+	}
+}

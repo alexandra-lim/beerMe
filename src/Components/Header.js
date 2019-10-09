@@ -1,10 +1,11 @@
-import React from 'react';
+import React from '../../node_modules/react';
 
 const Header = () => {
     return (
         <header>
-            <h1>Beer Me</h1>
-            <h2>A selection of BrewDog's DIY homebrew recipes. Click "Randomize!" for a random recipe!</h2>
+            <div className="wrapper">
+                <h1>Beer Me</h1>
+            </div>
         </header>
     );
 };
