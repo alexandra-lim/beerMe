@@ -34,7 +34,8 @@ class App extends Component {
 			});
 	}
 
-	// to generate random beer by calling random api when user clicks on randomize. randomized loop when called in beerDataToRender();
+	// to generate random beer by calling random api when user clicks on randomize. randomized loop when called in beerDataToRender(); Unable to prevent random beer data from looping when called
+
 	// randomize = () => {
 	//   Axios.get("https://api.punkapi.com/v2/beers/random")
 	//   .then(res => {
@@ -91,6 +92,8 @@ class App extends Component {
 
 						{/* render beer data based on list toggled */}
 						{this.beerDataToRender()}
+
+						{/* would like to take this project one step further by making each recipe card a link that leads the user to the actual recipe. would do this by creating a child component that calls on the recipe information from beerList and randomBeer array. Also need to add toggleList to links */}
 					</div>
 				</main>
 
