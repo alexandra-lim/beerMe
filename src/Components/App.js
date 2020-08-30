@@ -36,14 +36,14 @@ class App extends Component {
 
 	// to generate random beer by calling random api when user clicks on randomize. randomized loop when called in beerDataToRender(); Unable to prevent random beer data from looping when called
 
-	// randomize = () => {
-	//   Axios.get("https://api.punkapi.com/v2/beers/random")
-	//   .then(res => {
-	//     this.setState({
-	//       randomBeer: res.data,
-	//     })
-	//   });
-	// }
+	randomize = () => {
+	  Axios.get("https://api.punkapi.com/v2/beers/random")
+	  .then(res => {
+	    this.setState({
+	      randomBeer: res.data,
+	    })
+	  });
+	}
 
 	// to show the right content based on button clicked
 	beerDataToRender = () => {
@@ -51,11 +51,10 @@ class App extends Component {
 		if (listToShow === "beerList") {
 			return <BeerList beerList={beerList} />;
 		} else if (listToShow === "randomBeer") {
-			// this.randomize();
 			return (
 				<RandomBeer
 					randomBeer={randomBeer}
-					toggleList={this.toggleList}
+					// toggleList={this.toggleList}
 				/>
 			);
 		}
@@ -66,6 +65,10 @@ class App extends Component {
 		this.setState({
 			listToShow: listType
 		});
+
+		if (listType === "randomBeer") {
+			this.randomize();
+		}
 	};
 
 	render() {
