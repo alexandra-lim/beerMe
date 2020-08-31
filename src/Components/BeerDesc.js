@@ -23,7 +23,7 @@ class BeerDesc extends Component {
 						<h3>{name}</h3>
 						<p className='tagline'>{tagline}</p>
 						<p className='abv'>
-							<span class='bold'>ABV:</span> {abv}
+							<span className='bold'>ABV:</span> {abv}
 						</p>
 						<p className='ibu'>
 							<span className='bold'>IBU:</span> {ibu}
